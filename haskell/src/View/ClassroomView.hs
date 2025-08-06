@@ -4,6 +4,7 @@ import Tipos
 import Repository.ClassroomRepository 
 import Repository.ClassRepository (parseResource)
 import qualified Data.Map as Map
+import View.UI (drawHeader)
 
 import System.IO (hFlush, stdout)
 import Data.List.Split (splitOn)
@@ -12,9 +13,7 @@ import Data.List.Split (splitOn)
 createClassRoom :: [Classroom] -> IO [Classroom] 
 createClassRoom clsroomData = do
     putStr "\ESC[2J"
-    putStrLn "=================================="
-    putStrLn "       Cadastro de salas"
-    putStrLn "=================================="
+    drawHeader "Cadastro de salas"
     putStrLn "Insira os dados da sala:"
     putStr "Codigo da sala: "
     hFlush stdout
